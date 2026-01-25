@@ -1,0 +1,2 @@
+
+30a8f21e9d73a1054c8d6e6c2f2bac98634de3d8	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/is-number-object/-/is-number-object-1.1.1.tgz","integrity":"sha512-lZhclumE1G6VYD8VHe35wFaIif+CTy5SJIi5+3y4psDgWu4wPDoBhF8NxUOinEc7pHgiTsT6MaBb92rKhhD+Xw==","time":1769353140702,"size":8796,"metadata":{"time":1769353140697,"url":"https://bnpm.byted.org/is-number-object/-/is-number-object-1.1.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:00 GMT"},"options":{"compress":true}}}

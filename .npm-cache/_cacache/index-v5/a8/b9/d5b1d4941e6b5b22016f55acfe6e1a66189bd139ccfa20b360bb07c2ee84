@@ -1,0 +1,2 @@
+
+55f1c3574e9908287dbb1622fb33096224c3b1c9	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/safe-regex-test/-/safe-regex-test-1.1.0.tgz","integrity":"sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==","time":1769353142916,"size":5064,"metadata":{"time":1769353142913,"url":"https://bnpm.byted.org/safe-regex-test/-/safe-regex-test-1.1.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:03 GMT"},"options":{"compress":true}}}

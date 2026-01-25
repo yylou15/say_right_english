@@ -1,0 +1,2 @@
+
+79dd892fa52d7d1a16fbd3411908b2c14c4e7dc9	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/@rushstack/eslint-patch/-/eslint-patch-1.15.0.tgz","integrity":"sha512-ojSshQPKwVvSMR8yT2L/QtUkV5SXi/IfDiJ4/8d6UbTPjiHVmxZzUAzGD8Tzks1b9+qQkZa0isUOvYObedITaw==","time":1769353144422,"size":64059,"metadata":{"time":1769353144187,"url":"https://bnpm.byted.org/@rushstack/eslint-patch/-/eslint-patch-1.15.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:04 GMT"},"options":{"compress":true}}}

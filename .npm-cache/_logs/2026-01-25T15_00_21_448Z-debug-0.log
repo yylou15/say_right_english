@@ -1,0 +1,22 @@
+0 verbose cli /usr/local/bin/node /usr/local/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@10.9.3
+2 info using node@v22.19.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/bytedance/code/pc_web/career_word/.npmrc
+5 silly config load:file:/Users/bytedance/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm exec create-next-app@14 biz-english --typescript --tailwind --eslint --app --src-dir --import-alias @/* --use-npm
+8 verbose argv "exec" "--" "create-next-app@14" "biz-english" "--typescript" "--tailwind" "--eslint" "--app" "--src-dir" "--import-alias" "@/*" "--use-npm"
+9 verbose logfile logs-max:10 dir:/Users/bytedance/code/pc_web/career_word/.npm-cache/_logs/2026-01-25T15_00_21_448Z-
+10 verbose logfile /Users/bytedance/code/pc_web/career_word/.npm-cache/_logs/2026-01-25T15_00_21_448Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 http fetch GET 200 https://bnpm.byted.org/create-next-app 518ms (cache revalidated)
+14 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+15 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+16 verbose cwd /Users/bytedance/code/pc_web/career_word
+17 verbose os Darwin 23.6.0
+18 verbose node v22.19.0
+19 verbose npm  v10.9.3
+20 verbose exit 0
+21 info ok

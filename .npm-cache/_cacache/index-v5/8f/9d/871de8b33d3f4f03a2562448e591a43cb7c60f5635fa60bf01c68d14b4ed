@@ -1,0 +1,2 @@
+
+fb0a60859cc5e021ce7ee8c56aab05079207d054	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz","integrity":"sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==","time":1769353142736,"size":4134,"metadata":{"time":1769353142723,"url":"https://bnpm.byted.org/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:02 GMT"},"options":{"compress":true}}}

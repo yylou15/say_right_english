@@ -1,0 +1,2 @@
+
+8e2311d2bfd85353b2492e38c1bf347e9ffabc80	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/doctrine/-/doctrine-3.0.0.tgz","integrity":"sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==","time":1769353145271,"size":22354,"metadata":{"time":1769353145235,"url":"https://bnpm.byted.org/doctrine/-/doctrine-3.0.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:05 GMT"},"options":{"compress":true}}}

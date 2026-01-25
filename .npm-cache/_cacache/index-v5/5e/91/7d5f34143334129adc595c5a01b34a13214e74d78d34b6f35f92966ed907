@@ -1,0 +1,2 @@
+
+f5d5e9181b1965388211a0f15980c9429b3db793	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz","integrity":"sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==","time":1769353141216,"size":2270,"metadata":{"time":1769353141167,"url":"https://bnpm.byted.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:01 GMT"},"options":{"compress":true}}}

@@ -1,0 +1,2 @@
+
+812567e4cfc98b3037a049eb5cfdea3f645586fc	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/find-up/-/find-up-5.0.0.tgz","integrity":"sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==","time":1769353145008,"size":3806,"metadata":{"time":1769353144986,"url":"https://bnpm.byted.org/find-up/-/find-up-5.0.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:05 GMT"},"options":{"compress":true}}}

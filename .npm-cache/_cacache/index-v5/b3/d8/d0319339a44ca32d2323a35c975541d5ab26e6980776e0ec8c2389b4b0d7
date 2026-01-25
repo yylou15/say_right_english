@@ -1,0 +1,2 @@
+
+a8879d79aba051fc4e10b07d5174c063213394fa	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/inflight/-/inflight-1.0.6.tgz","integrity":"sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==","time":1769353140488,"size":2041,"metadata":{"time":1769353140460,"url":"https://bnpm.byted.org/inflight/-/inflight-1.0.6.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:00 GMT"},"options":{"compress":true}}}
