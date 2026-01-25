@@ -1,2 +1,0 @@
-
-38b33a2e82fae00c1b46f875b53d3571a86188a3	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/foreground-child/-/foreground-child-3.3.1.tgz","integrity":"sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==","time":1769353142710,"size":12526,"metadata":{"time":1769353142686,"url":"https://bnpm.byted.org/foreground-child/-/foreground-child-3.3.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:02 GMT"},"options":{"compress":true}}}

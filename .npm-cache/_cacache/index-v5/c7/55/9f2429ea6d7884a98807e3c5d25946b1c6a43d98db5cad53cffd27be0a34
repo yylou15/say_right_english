@@ -1,2 +1,0 @@
-
-00e23fccb9756330bad2161b4b9bb3e20c283eee	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/@emnapi/core/-/core-1.8.1.tgz","integrity":"sha512-AvT9QFpxK0Zd8J0jopedNm+w/2fIzvtPKPjqyw9jwvBaReTTqPBk9Hixaz7KbjimP+QNz605/XnjFcDAL2pqBg==","time":1769353140631,"size":217592,"metadata":{"time":1769353140583,"url":"https://bnpm.byted.org/@emnapi/core/-/core-1.8.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:00 GMT"},"options":{"compress":true}}}

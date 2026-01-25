@@ -1,2 +1,0 @@
-
-5eba51178e57a2468b9f16fe3e218444df94c3b0	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/dlv/-/dlv-1.1.3.tgz","integrity":"sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==","time":1769353141533,"size":2160,"metadata":{"time":1769353141500,"url":"https://bnpm.byted.org/dlv/-/dlv-1.1.3.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:01 GMT"},"options":{"compress":true}}}

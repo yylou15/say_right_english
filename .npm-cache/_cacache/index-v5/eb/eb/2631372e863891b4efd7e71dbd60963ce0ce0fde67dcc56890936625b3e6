@@ -1,2 +1,0 @@
-
-8d81d6418a979b4b05ab06d2b4cd2d0580f19bff	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz","integrity":"sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==","time":1769353142603,"size":7635,"metadata":{"time":1769353142575,"url":"https://bnpm.byted.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:02 GMT"},"options":{"compress":true}}}

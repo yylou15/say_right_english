@@ -1,2 +1,0 @@
-
-1013a37f2f9e071705007864b920f876855e95f5	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz","integrity":"sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==","time":1769353141058,"size":15375,"metadata":{"time":1769353141040,"url":"https://bnpm.byted.org/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:01 GMT"},"options":{"compress":true}}}

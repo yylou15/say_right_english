@@ -1,2 +1,0 @@
-
-093925c24b0c711951a3eb189976a74bb1d55088	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/fastq/-/fastq-1.20.1.tgz","integrity":"sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==","time":1769353144782,"size":9885,"metadata":{"time":1769353144733,"url":"https://bnpm.byted.org/fastq/-/fastq-1.20.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:04 GMT"},"options":{"compress":true}}}

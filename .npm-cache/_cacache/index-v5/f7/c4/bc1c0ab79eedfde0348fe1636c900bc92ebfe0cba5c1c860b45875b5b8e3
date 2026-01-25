@@ -1,2 +1,0 @@
-
-61ee8ac21231a26cedede81a76c30981345096e1	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/is-regex/-/is-regex-1.2.1.tgz","integrity":"sha512-MjYsKHO5O7mCsmRGxWcLWheFqN9DJ/2TmngvjKXihe6efViPqc274+Fx/4fYj/r03+ESvBdTXK0V6tA3rgez1g==","time":1769353143182,"size":12196,"metadata":{"time":1769353143143,"url":"https://bnpm.byted.org/is-regex/-/is-regex-1.2.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:03 GMT"},"options":{"compress":true}}}

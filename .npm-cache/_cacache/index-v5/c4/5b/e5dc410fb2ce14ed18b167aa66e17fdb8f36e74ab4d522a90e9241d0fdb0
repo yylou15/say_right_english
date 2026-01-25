@@ -1,2 +1,0 @@
-
-af14188b1ec65fe1f9c546306e161b9b183cf6f1	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/eslint-scope/-/eslint-scope-7.2.2.tgz","integrity":"sha512-dOt21O7lTMhDM+X9mB4GX+DZrZtCUJPL/wlcTqxyrx5IvO0IYtILdtrQGQp+8n5S0gwSVmOf9NQrjMOgfQZlIg==","time":1769353145265,"size":25937,"metadata":{"time":1769353145236,"url":"https://bnpm.byted.org/eslint-scope/-/eslint-scope-7.2.2.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:05 GMT"},"options":{"compress":true}}}

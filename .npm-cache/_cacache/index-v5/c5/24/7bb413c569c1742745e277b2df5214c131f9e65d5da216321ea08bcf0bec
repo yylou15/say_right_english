@@ -1,2 +1,0 @@
-
-38e48ae087350d7f064abc47ec48fcc4216d0548	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/pirates/-/pirates-4.0.7.tgz","integrity":"sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==","time":1769353141216,"size":4638,"metadata":{"time":1769353141165,"url":"https://bnpm.byted.org/pirates/-/pirates-4.0.7.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:01 GMT"},"options":{"compress":true}}}

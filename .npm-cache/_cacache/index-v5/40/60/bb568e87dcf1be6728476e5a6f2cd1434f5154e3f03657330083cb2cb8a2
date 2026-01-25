@@ -1,2 +1,0 @@
-
-2cae35a300d878d91fe750b226e76c7fed4eb820	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/nanoid/-/nanoid-3.3.11.tgz","integrity":"sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==","time":1769353141824,"size":7127,"metadata":{"time":1769353141822,"url":"https://bnpm.byted.org/nanoid/-/nanoid-3.3.11.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:01 GMT"},"options":{"compress":true}}}

@@ -1,2 +1,0 @@
-
-78502d4ba38d05fd1c88c6eec9adefae794e6433	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/lilconfig/-/lilconfig-3.1.3.tgz","integrity":"sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==","time":1769353141533,"size":5223,"metadata":{"time":1769353141501,"url":"https://bnpm.byted.org/lilconfig/-/lilconfig-3.1.3.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:01 GMT"},"options":{"compress":true}}}

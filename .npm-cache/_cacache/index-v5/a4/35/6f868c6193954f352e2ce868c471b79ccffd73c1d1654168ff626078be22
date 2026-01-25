@@ -1,2 +1,0 @@
-
-fb692e1ac4c57d0ff4b24391861203a7cecbe4a7	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/side-channel-map/-/side-channel-map-1.0.1.tgz","integrity":"sha512-VCjCNfgMsby3tTdo02nbjtM/ewra6jPHmpThenkTYh8pG9ucZ/1P8So4u4FGBek/BjpOVsDCMoLA/iuBKIFXRA==","time":1769353141646,"size":5280,"metadata":{"time":1769353141627,"url":"https://bnpm.byted.org/side-channel-map/-/side-channel-map-1.0.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:01 GMT"},"options":{"compress":true}}}

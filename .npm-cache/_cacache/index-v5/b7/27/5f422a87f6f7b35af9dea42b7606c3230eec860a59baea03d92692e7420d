@@ -1,2 +1,0 @@
-
-ab72aef49166adda1ed1fdfc1aedb91c5912b518	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/caniuse-lite/-/caniuse-lite-1.0.30001765.tgz","integrity":"sha512-LWcNtSyZrakjECqmpP4qdg0MMGdN368D7X8XvvAqOcqMv0RxnlqVKZl2V6/mBR68oYMxOZPLw/gO7DuisMHUvQ==","time":1769353142475,"size":338030,"metadata":{"time":1769353141887,"url":"https://bnpm.byted.org/caniuse-lite/-/caniuse-lite-1.0.30001765.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:02 GMT"},"options":{"compress":true}}}
