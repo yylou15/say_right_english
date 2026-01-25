@@ -1,2 +1,0 @@
-
-d4c83098afaf86e896ed8cc0a09b0acf51dfb892	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz","integrity":"sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==","time":1769353144771,"size":2847,"metadata":{"time":1769353144733,"url":"https://bnpm.byted.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:04 GMT"},"options":{"compress":true}}}

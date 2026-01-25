@@ -1,2 +1,0 @@
-
-21511f216bc9e3470ffe424a50c50949faf1bafd	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/is-extglob/-/is-extglob-2.1.1.tgz","integrity":"sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==","time":1769353142345,"size":2663,"metadata":{"time":1769353142328,"url":"https://bnpm.byted.org/is-extglob/-/is-extglob-2.1.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:02 GMT"},"options":{"compress":true}}}

@@ -1,2 +1,0 @@
-
-178ba1e9dd79572c5ffb469efc07ed6b2a85a4ff	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/sucrase/-/sucrase-3.35.1.tgz","integrity":"sha512-DhuTmvZWux4H1UOnWMB3sk0sbaCVOoQZjv8u1rDoTV0HTdGem9hkAZtl4JZy8P2z4Bg0nT+YMeOFyVr4zcG5Tw==","time":1769353141653,"size":193967,"metadata":{"time":1769353141487,"url":"https://bnpm.byted.org/sucrase/-/sucrase-3.35.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:01 GMT"},"options":{"compress":true}}}

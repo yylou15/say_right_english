@@ -1,2 +1,0 @@
-
-d60de70a0b0a2aef3066b671d9abcdf34aab3104	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/espree/-/espree-9.6.1.tgz","integrity":"sha512-oruZaFkjorTpF32kDSI5/75ViwGeZginGGy2NoOSg3Q9bnwlnmDm4HLnkl0RE3n+njDXR037aY1+x58Z/zFdwQ==","time":1769353145264,"size":16332,"metadata":{"time":1769353145235,"url":"https://bnpm.byted.org/espree/-/espree-9.6.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:05 GMT"},"options":{"compress":true}}}

@@ -1,2 +1,0 @@
-
-1f555f6f509e5388675db32a802adba65e9cff28	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/@typescript-eslint/scope-manager/-/scope-manager-8.53.1.tgz","integrity":"sha512-Lu23yw1uJMFY8cUeq7JlrizAgeQvWugNQzJp8C3x8Eo5Jw5Q2ykMdiiTB9vBVOOUBysMzmRRmUfwFrZuI2C4SQ==","time":1769353144679,"size":61517,"metadata":{"time":1769353144002,"url":"https://bnpm.byted.org/@typescript-eslint/scope-manager/-/scope-manager-8.53.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:03 GMT"},"options":{"compress":true}}}

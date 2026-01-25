@@ -1,2 +1,0 @@
-
-9886a0e5d384d8f21def3fd1d1cbd0bb2b38d5b2	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/eslint/-/eslint-8.57.1.tgz","integrity":"sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==","time":1769353146449,"size":566631,"metadata":{"time":1769353146012,"url":"https://bnpm.byted.org/eslint/-/eslint-8.57.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:06 GMT"},"options":{"compress":true}}}

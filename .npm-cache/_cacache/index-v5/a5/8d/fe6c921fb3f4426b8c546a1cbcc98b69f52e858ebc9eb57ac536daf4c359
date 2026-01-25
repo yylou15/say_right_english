@@ -1,2 +1,0 @@
-
-0b2e9346436e495912b3d4c7aa7542a6d05a2108	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/get-proto/-/get-proto-1.0.1.tgz","integrity":"sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==","time":1769353143189,"size":4474,"metadata":{"time":1769353143148,"url":"https://bnpm.byted.org/get-proto/-/get-proto-1.0.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:03 GMT"},"options":{"compress":true}}}

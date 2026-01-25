@@ -1,2 +1,0 @@
-
-bee2bd2375a80b028d6c6741ea0c898e3198cfd8	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/strip-bom/-/strip-bom-3.0.0.tgz","integrity":"sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==","time":1769353140957,"size":1736,"metadata":{"time":1769353140914,"url":"https://bnpm.byted.org/strip-bom/-/strip-bom-3.0.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:00 GMT"},"options":{"compress":true}}}
