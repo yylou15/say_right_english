@@ -1,0 +1,2 @@
+
+38dce831da222c4cb792e4fa5f30960996c6a29e	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/functions-have-names/-/functions-have-names-1.2.3.tgz","integrity":"sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==","time":1769353142747,"size":6003,"metadata":{"time":1769353142731,"url":"https://bnpm.byted.org/functions-have-names/-/functions-have-names-1.2.3.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:02 GMT"},"options":{"compress":true}}}

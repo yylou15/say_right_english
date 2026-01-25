@@ -1,0 +1,2 @@
+
+8c12f0b22e20ddae25db8028b8b481bc51afe80a	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/eslint-plugin-import/-/eslint-plugin-import-2.32.0.tgz","integrity":"sha512-whOE1HFo/qJDyX4SnXzP4N6zOWn79WhnCUY/iDR0mPfQZO8wcYE4JClzI2oZrhBnnMUCBCHZhO6VQyoBU95mZA==","time":1769353144691,"size":411146,"metadata":{"time":1769353144191,"url":"https://bnpm.byted.org/eslint-plugin-import/-/eslint-plugin-import-2.32.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:04 GMT"},"options":{"compress":true}}}

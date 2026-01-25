@@ -1,0 +1,2 @@
+
+524b9b35c86b24a82f31dc08e988b7c2ef5382d7	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/is-bun-module/-/is-bun-module-2.0.0.tgz","integrity":"sha512-gNCGbnnnnFAUGKeZ9PdbyeGYJqewpmc2aKHUEMO5nQPWU9lOmv7jcmQIv+qHD8fXW6W7qfuCwX4rY9LNRjXrkQ==","time":1769353143665,"size":5603,"metadata":{"time":1769353143628,"url":"https://bnpm.byted.org/is-bun-module/-/is-bun-module-2.0.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:03 GMT"},"options":{"compress":true}}}

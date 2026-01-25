@@ -1,0 +1,2 @@
+
+78549f484da4dca109c74783776c78783aaacf21	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/imurmurhash/-/imurmurhash-0.1.4.tgz","integrity":"sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==","time":1769353146100,"size":4312,"metadata":{"time":1769353146094,"url":"https://bnpm.byted.org/imurmurhash/-/imurmurhash-0.1.4.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:05 GMT"},"options":{"compress":true}}}

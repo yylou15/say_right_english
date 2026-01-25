@@ -1,0 +1,2 @@
+
+76e34445523184c9f54cc57d84c53ce2f9a11e70	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/wrap-ansi/-/wrap-ansi-8.1.0.tgz","integrity":"sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==","time":1769353142345,"size":4444,"metadata":{"time":1769353142326,"url":"https://bnpm.byted.org/wrap-ansi/-/wrap-ansi-8.1.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:02 GMT"},"options":{"compress":true}}}

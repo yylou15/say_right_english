@@ -1,0 +1,2 @@
+
+c975016ae65068289b51af8b8a8e3dc5b288ad18	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/chalk/-/chalk-4.1.2.tgz","integrity":"sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==","time":1769353145587,"size":11577,"metadata":{"time":1769353145578,"url":"https://bnpm.byted.org/chalk/-/chalk-4.1.2.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:05 GMT"},"options":{"compress":true}}}

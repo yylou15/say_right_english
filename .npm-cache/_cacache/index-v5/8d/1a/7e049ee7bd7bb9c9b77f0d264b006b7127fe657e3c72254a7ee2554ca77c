@@ -1,0 +1,2 @@
+
+f2d74a897f70b7921f944df6d57498c451890fee	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/call-bound/-/call-bound-1.0.4.tgz","integrity":"sha512-+ys997U96po4Kx/ABpBCqhA9EuxJaQWDQg7295H4hBphv3IZg0boBKuwYpt4YXp6MZ5AmZQnU/tyMTlRpaSejg==","time":1769353143574,"size":6382,"metadata":{"time":1769353143481,"url":"https://bnpm.byted.org/call-bound/-/call-bound-1.0.4.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:03 GMT"},"options":{"compress":true}}}

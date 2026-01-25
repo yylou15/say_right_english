@@ -1,0 +1,2 @@
+
+e60bf19fa51b23784e197bc85c9e769750f7cda4	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/is-bigint/-/is-bigint-1.1.0.tgz","integrity":"sha512-n4ZT37wG78iz03xPRKJrHTdZbe3IicyucEtdRsV5yglwc3GyUfbAfpSeD0FJ41NbUNSt5wbhqfp1fS+BgnvDFQ==","time":1769353140941,"size":6689,"metadata":{"time":1769353140897,"url":"https://bnpm.byted.org/is-bigint/-/is-bigint-1.1.0.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:00 GMT"},"options":{"compress":true}}}

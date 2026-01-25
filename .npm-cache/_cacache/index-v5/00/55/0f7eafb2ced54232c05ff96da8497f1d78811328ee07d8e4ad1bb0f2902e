@@ -1,0 +1,2 @@
+
+2ce3328b8db68b740283b0a093f2095e74b75f8d	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/minimatch/-/minimatch-3.1.2.tgz","integrity":"sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==","time":1769353145008,"size":11940,"metadata":{"time":1769353144982,"url":"https://bnpm.byted.org/minimatch/-/minimatch-3.1.2.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:04 GMT"},"options":{"compress":true}}}

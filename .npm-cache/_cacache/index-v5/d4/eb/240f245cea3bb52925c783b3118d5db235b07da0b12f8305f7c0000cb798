@@ -1,0 +1,2 @@
+
+1a28cb8327da4fb727cdaad7c20ee588123b24f8	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/unrs-resolver/-/unrs-resolver-1.11.1.tgz","integrity":"sha512-bSjt9pjaEBnNiGgc9rUiHGKv5l4/TGzDmYw3RhnkJGtLhbnnA/5qJj7x3dNDCRx/PJxu774LlH8lCOlB4hEfKg==","time":1769353143665,"size":10843,"metadata":{"time":1769353143623,"url":"https://bnpm.byted.org/unrs-resolver/-/unrs-resolver-1.11.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:03 GMT"},"options":{"compress":true}}}

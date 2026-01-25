@@ -1,0 +1,2 @@
+
+4da5673496ed867a08faf4c2eff77058d76019ce	{"key":"make-fetch-happen:request-cache:https://bnpm.byted.org/parent-module/-/parent-module-1.0.1.tgz","integrity":"sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==","time":1769353142516,"size":2008,"metadata":{"time":1769353142471,"url":"https://bnpm.byted.org/parent-module/-/parent-module-1.0.1.tgz","reqHeaders":{},"resHeaders":{"content-type":"application/x-gzip","date":"Sun, 25 Jan 2026 14:59:02 GMT"},"options":{"compress":true}}}
