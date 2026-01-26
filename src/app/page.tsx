@@ -219,9 +219,9 @@ export default function LandingPage() {
         <div className="w-[1200px] mx-auto flex justify-between items-center opacity-60 text-sm font-medium">
           <p>© 2026 BizEnglish AI Assistant. All rights reserved.</p>
           <div className="flex space-x-10">
-            <span>Privacy Policy</span>
-            <a href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</a>
-            <span>Contact Us</span>
+            <Link href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</Link>
+            <Link href="/contact" className="hover:text-indigo-600 transition-colors">Contact Us</Link>
           </div>
         </div>
       </footer>

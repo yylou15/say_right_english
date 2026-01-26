@@ -215,9 +215,9 @@ export default function TermsPage() {
         <div className="w-[1000px] mx-auto flex justify-between items-center opacity-60 text-sm font-medium">
           <p>© 2026 BizEnglish AI Assistant. All rights reserved.</p>
           <div className="flex space-x-10">
-            <span className="cursor-pointer hover:text-indigo-600 transition-colors">Privacy Policy</span>
+            <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/privacy')}>Privacy Policy</span>
             <span className="text-indigo-600 font-bold">Terms of Service</span>
-            <span className="cursor-pointer hover:text-indigo-600 transition-colors">Contact Us</span>
+            <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/contact')}>Contact Us</span>
           </div>
         </div>
       </footer>
