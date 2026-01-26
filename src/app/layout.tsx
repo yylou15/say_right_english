@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "BizEnglish AI - Professional Expressions",
+  title: "SayRight - Professional Expressions",
   description: "Never Feel Awkward in Meetings",
 };
 

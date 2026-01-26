@@ -32,7 +32,7 @@ export default function PrivacyPage() {
         <div className="space-y-8 text-slate-700 leading-relaxed">
           <section>
             <p>
-              This Privacy Policy describes how sayright (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) collects, uses, and protects your personal information when you use our website, applications, and services (collectively, the &quot;Service&quot;).
+              This Privacy Policy describes how SayRight (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) collects, uses, and protects your personal information when you use our website, applications, and services (collectively, the &quot;Service&quot;).
             </p>
             <p className="mt-4">
               By using the Service, you agree to the collection and use of information in accordance with this Privacy Policy.
@@ -186,7 +186,7 @@ export default function PrivacyPage() {
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-12 px-12">
         <div className="w-[1000px] mx-auto flex justify-between items-center opacity-60 text-sm font-medium">
-          <p>© 2026 BizEnglish AI Assistant. All rights reserved.</p>
+          <p>© 2026 SayRight. All rights reserved.</p>
           <div className="flex space-x-10">
             <span className="text-indigo-600 font-bold">Privacy Policy</span>
             <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/terms')}>Terms of Service</span>

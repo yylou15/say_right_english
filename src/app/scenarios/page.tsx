@@ -50,7 +50,7 @@ function ScenariosContent() {
             <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shrink-0">
               <Icon icon="heroicons:book-open-solid" className="text-white text-xl" />
             </div>
-            <span className="font-bold text-lg tracking-tight text-slate-900">BizEnglish AI</span>
+            <span className="font-bold text-lg tracking-tight text-slate-900">SayRight</span>
           </div>
           <nav className="space-y-1">
             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 px-3">CATEGORIES</div>

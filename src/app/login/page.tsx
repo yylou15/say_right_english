@@ -22,7 +22,7 @@ export default function LoginPage() {
       <nav className="w-full bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center shrink-0">
         <div className="flex items-center space-x-2 cursor-pointer" onClick={() => router.push('/')}>
           <Icon icon="heroicons:bolt-solid" className="text-indigo-600 text-2xl" />
-          <span className="font-bold text-xl tracking-tight text-slate-800">BizEnglish AI</span>
+          <span className="font-bold text-xl tracking-tight text-slate-800">SayRight</span>
         </div>
         <span className="text-sm font-medium text-slate-500">v2026.01.25</span>
       </nav>

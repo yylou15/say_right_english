@@ -37,7 +37,7 @@ export default function LandingPage() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200 px-12 py-4 flex justify-between items-center min-w-[1280px]">
         <div className="flex items-center space-x-2">
           <Icon icon="heroicons:sparkles-20-solid" className="text-indigo-600 text-2xl" />
-          <span className="font-bold text-xl tracking-tight text-slate-800">BizEnglish AI</span>
+          <span className="font-bold text-xl tracking-tight text-slate-800">SayRight</span>
         </div>
         <div className="flex items-center space-x-6">
           <span className="text-sm font-medium text-slate-500 hover:text-indigo-600 cursor-pointer transition-colors">v2026.01.25</span>
@@ -218,7 +218,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-12 px-12">
         <div className="w-[1200px] mx-auto flex justify-between items-center opacity-60 text-sm font-medium">
-          <p>© 2026 BizEnglish AI Assistant. All rights reserved.</p>
+          <p>© 2026 SayRight. All rights reserved.</p>
           <div className="flex space-x-10">
             <Link href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</Link>

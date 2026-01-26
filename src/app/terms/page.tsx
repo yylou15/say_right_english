@@ -12,7 +12,7 @@ export default function TermsPage() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200 px-12 py-4 flex justify-between items-center min-w-[1280px]">
         <div className="flex items-center space-x-2 cursor-pointer" onClick={() => router.push('/')}>
           <Icon icon="heroicons:sparkles-20-solid" className="text-indigo-600 text-2xl" />
-          <span className="font-bold text-xl tracking-tight text-slate-800">BizEnglish AI</span>
+          <span className="font-bold text-xl tracking-tight text-slate-800">SayRight</span>
         </div>
         <div className="flex items-center space-x-6">
             <button 
@@ -32,7 +32,7 @@ export default function TermsPage() {
         <div className="space-y-8 text-slate-700 leading-relaxed">
           <section>
             <p>
-              These Terms of Service (&quot;Terms&quot;) govern your access to and use of the services, websites, and applications (collectively, the &quot;Service&quot;) provided by BizEnglish AI (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
+              These Terms of Service (&quot;Terms&quot;) govern your access to and use of the services, websites, and applications (collectively, the &quot;Service&quot;) provided by SayRight (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
             </p>
             <p className="mt-4">
               By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, please do not use the Service.
