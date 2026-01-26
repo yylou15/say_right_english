@@ -3,7 +3,7 @@
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { login } from '@/lib/auth';
+import { login } from '../../lib/auth';
 
 export default function LoginPage() {
   const router = useRouter();
