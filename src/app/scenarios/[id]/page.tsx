@@ -3,8 +3,8 @@
 import { Icon } from '@iconify/react';
 import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { scenarios, Tone } from '@/data/scenarios';
-import { useAuthProtection, getIsPro } from '@/lib/auth';
+import { scenarios, Tone } from '../../../data/scenarios';
+import { useAuthProtection, getIsPro } from '../../../lib/auth';
 
 export default function ScenarioDetailsPage() {
   const router = useRouter();

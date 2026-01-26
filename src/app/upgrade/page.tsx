@@ -3,7 +3,7 @@
 import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, Suspense } from 'react';
-import { upgradeToPro } from '@/lib/auth';
+import { upgradeToPro } from '../../lib/auth';
 
 function UpgradeContent() {
   const router = useRouter();

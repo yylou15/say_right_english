@@ -3,7 +3,7 @@
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { getIsAuthed } from '@/lib/auth';
+import { getIsAuthed } from '../lib/auth';
 
 export default function LandingPage() {
   const router = useRouter();

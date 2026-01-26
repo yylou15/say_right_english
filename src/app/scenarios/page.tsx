@@ -3,8 +3,8 @@
 import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
-import { scenarios, Scenario } from '@/data/scenarios';
-import { useAuthProtection, getIsPro } from '@/lib/auth';
+import { scenarios, Scenario } from '../../data/scenarios';
+import { useAuthProtection, getIsPro } from '../../lib/auth';
 
 const categories = ["Disagree", "Clarify", "Delay", "Update", "Ask for help", "Push back"];
 
