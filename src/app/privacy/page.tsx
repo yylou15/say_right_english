@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200 px-12 py-4 flex justify-between items-center min-w-[1280px]">
         <div className="flex items-center space-x-2 cursor-pointer" onClick={() => router.push('/')}>
           <Icon icon="heroicons:sparkles-20-solid" className="text-indigo-600 text-2xl" />
-          <span className="font-bold text-xl tracking-tight text-slate-800">BizEnglish AI</span>
+          <span className="font-bold text-xl tracking-tight text-slate-800">SayRight</span>
         </div>
         <div className="flex items-center space-x-6">
             <button 
@@ -189,8 +189,8 @@ export default function PrivacyPage() {
           <p>© 2026 SayRight. All rights reserved.</p>
           <div className="flex space-x-10">
             <span className="text-indigo-600 font-bold">Privacy Policy</span>
-            <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/terms')}>Terms of Service</span>
-            <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/contact')}>Contact Us</span>
+            <a href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</a>
+            <a href="/contact" className="hover:text-indigo-600 transition-colors">Contact Us</a>
           </div>
         </div>
       </footer>

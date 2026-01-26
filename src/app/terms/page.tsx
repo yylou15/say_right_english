@@ -215,11 +215,11 @@ export default function TermsPage() {
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-12 px-12">
         <div className="w-[1000px] mx-auto flex justify-between items-center opacity-60 text-sm font-medium">
-          <p>© 2026 BizEnglish AI Assistant. All rights reserved.</p>
+          <p>© 2026 Say Right. All rights reserved.</p>
           <div className="flex space-x-10">
-            <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/privacy')}>Privacy Policy</span>
+            <a href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy Policy</a>
             <span className="text-indigo-600 font-bold">Terms of Service</span>
-            <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/contact')}>Contact Us</span>
+            <a href="/contact" className="hover:text-indigo-600 transition-colors">Contact Us</a>
           </div>
         </div>
       </footer>

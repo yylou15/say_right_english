@@ -62,8 +62,8 @@ export default function ContactPage() {
         <div className="w-[1000px] mx-auto flex justify-between items-center opacity-60 text-sm font-medium">
           <p>© 2026 SayRight. All rights reserved.</p>
           <div className="flex space-x-10">
-            <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/privacy')}>Privacy Policy</span>
-            <span className="cursor-pointer hover:text-indigo-600 transition-colors" onClick={() => router.push('/terms')}>Terms of Service</span>
+            <a href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</a>
             <span className="text-indigo-600 font-bold">Contact Us</span>
           </div>
         </div>

@@ -2,7 +2,6 @@
 
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { getIsAuthed } from '../lib/auth';
 
@@ -220,9 +219,9 @@ export default function LandingPage() {
         <div className="w-[1200px] mx-auto flex justify-between items-center opacity-60 text-sm font-medium">
           <p>© 2026 SayRight. All rights reserved.</p>
           <div className="flex space-x-10">
-            <Link href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</Link>
-            <Link href="/contact" className="hover:text-indigo-600 transition-colors">Contact Us</Link>
+            <a href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</a>
+            <a href="/contact" className="hover:text-indigo-600 transition-colors">Contact Us</a>
           </div>
         </div>
       </footer>

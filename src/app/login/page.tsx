@@ -101,13 +101,13 @@ export default function LoginPage() {
       <footer className="h-24 flex flex-col items-center justify-center px-8 shrink-0 border-t border-slate-50">
         <p className="text-[10px] text-slate-400 mb-2">Empowering global professionals @ 2026.01.25</p>
         <div className="flex space-x-4 text-[10px] font-bold text-slate-300">
-          <Link href="/upgrade" className="hover:text-slate-500 transition-colors">Pricing</Link>
+          <a href="/upgrade" className="hover:text-slate-500 transition-colors">Pricing</a>
           <span className="select-none">•</span>
-          <Link href="/privacy" className="hover:text-slate-500 transition-colors">Privacy Policy</Link>
+          <a href="/privacy" className="hover:text-slate-500 transition-colors">Privacy Policy</a>
           <span className="select-none">•</span>
-          <Link href="/terms" className="hover:text-slate-500 transition-colors">Terms of Service</Link>
+          <a href="/terms" className="hover:text-slate-500 transition-colors">Terms of Service</a>
           <span className="select-none">•</span>
-          <Link href="/contact" className="hover:text-slate-500 transition-colors">Contact Us</Link>
+          <a href="/contact" className="hover:text-slate-500 transition-colors">Contact Us</a>
         </div>
       </footer>
     </div>
