@@ -1,4 +1,4 @@
-# Makefile for BizEnglish AI
+# Makefile for SayRight
 
 # Variables
 GIT_MSG ?= feat: build

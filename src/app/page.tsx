@@ -65,17 +65,17 @@ export default function LandingPage() {
           </p>
           <div className="flex items-center justify-center gap-6 pt-6">
             <button 
-              onClick={handleTryNow}
+              onClick={() => router.push('/upgrade')}
               className="bg-indigo-600 text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-slate-900 transition-all shadow-xl hover:shadow-indigo-200 flex items-center group"
             >
-              Get Started
-              <Icon icon="heroicons:arrow-right-20-solid" className="ml-2 group-hover:translate-x-1 transition-transform" />
+              Get Pro Access
+              <Icon icon="heroicons:star-20-solid" className="ml-2 group-hover:scale-110 transition-transform" />
             </button>
             <button 
-              onClick={() => router.push('/scenarios')}
+              onClick={handleTryNow}
               className="bg-white text-slate-700 border-2 border-slate-200 px-10 py-4 rounded-xl text-lg font-bold hover:border-indigo-600 hover:text-indigo-600 transition-all"
             >
-              View All Scenarios
+              Try for Free
             </button>
           </div>
         </div>
