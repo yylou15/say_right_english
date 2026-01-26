@@ -220,7 +220,7 @@ export default function LandingPage() {
           <p>© 2026 BizEnglish AI Assistant. All rights reserved.</p>
           <div className="flex space-x-10">
             <span>Privacy Policy</span>
-            <Link href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</Link>
+            <a href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</a>
             <span>Contact Us</span>
           </div>
         </div>

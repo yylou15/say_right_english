@@ -103,7 +103,7 @@ export default function LoginPage() {
         <div className="flex space-x-4 text-[10px] font-bold text-slate-300">
           <a href="#" className="hover:text-slate-500 transition-colors">Privacy Policy</a>
           <span className="select-none">•</span>
-          <Link href="/terms" className="hover:text-slate-500 transition-colors">Terms of Service</Link>
+          <a href="/terms" className="hover:text-slate-500 transition-colors">Terms of Service</a>
         </div>
       </footer>
     </div>
