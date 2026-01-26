@@ -32,7 +32,7 @@ export default function PrivacyPage() {
         <div className="space-y-8 text-slate-700 leading-relaxed">
           <section>
             <p>
-              This Privacy Policy describes how BizEnglish AI (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) collects, uses, and protects your personal information when you use our website, applications, and services (collectively, the &quot;Service&quot;).
+              This Privacy Policy describes how sayright (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) collects, uses, and protects your personal information when you use our website, applications, and services (collectively, the &quot;Service&quot;).
             </p>
             <p className="mt-4">
               By using the Service, you agree to the collection and use of information in accordance with this Privacy Policy.

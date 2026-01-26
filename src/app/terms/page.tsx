@@ -77,9 +77,11 @@ export default function TermsPage() {
             </p>
             <ul className="list-disc pl-5 mt-2 space-y-2">
               <li>Prices, billing cycles, and payment terms are displayed at the time of purchase</li>
-              <li>Payments are processed by third-party payment providers</li>
+              <li>Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</li>
               <li>We do not store your full payment information</li>
-              <li>Unless otherwise stated, payments are <strong>non-refundable</strong>, except where required by law.</li>
+              <li>
+                <strong>Refund Policy:</strong> We offer a 14-day money-back guarantee on all subscriptions. If you are not satisfied with the Service, you may request a full refund within 14 days of your initial purchase by contacting us. After 14 days, payments are non-refundable, except where required by applicable law.
+              </li>
             </ul>
           </section>
 
