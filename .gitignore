@@ -35,3 +35,5 @@ next-env.d.ts
 
 # cache
 .npm-cache
+
+package-lock.json
