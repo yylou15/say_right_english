@@ -50,3 +50,30 @@ export const useProProtection = (redirectTo: string = '/upgrade') => {
     }
   }, [router, redirectTo]);
 };
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+
+export const sendCode = async (email: string) => {
+  const res = await fetch(`${API_URL}/auth/send-code`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  });
+  if (!res.ok) {
+      const error = await res.json();
+      throw new Error(error.error || 'Failed to send code');
+  }
+};
+
+export const verifyCode = async (email: string, code: string) => {
+  const res = await fetch(`${API_URL}/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, code }),
+  });
+  if (!res.ok) {
+      const error = await res.json();
+      throw new Error(error.error || 'Failed to verify code');
+  }
+  return res.json();
+};

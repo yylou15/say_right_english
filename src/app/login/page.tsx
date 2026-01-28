@@ -3,16 +3,42 @@
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { login } from '../../lib/auth';
+import { login, sendCode, verifyCode } from '../../lib/auth';
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
+  const [code, setCode] = useState('');
+  const [step, setStep] = useState<'email' | 'code'>('email');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleLogin = () => {
-    if (email) {
+  const handleSendCode = async () => {
+    if (!email) return;
+    setLoading(true);
+    setError('');
+    try {
+      await sendCode(email);
+      setStep('code');
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVerify = async () => {
+    if (!code) return;
+    setLoading(true);
+    setError('');
+    try {
+      await verifyCode(email, code);
       login(email);
       router.push('/scenarios');
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -61,25 +87,51 @@ export default function LoginPage() {
               
               {/* Form Section */}
               <div className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Work Email</label>
-                  <div className="relative">
-                    <input 
-                      type="email" 
-                      placeholder="name@company.com" 
-                      className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-indigo-500 focus:bg-white transition-all placeholder:text-slate-300"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <Icon icon="heroicons:envelope" className="absolute right-5 top-4.5 text-slate-300 text-xl" />
+                {step === 'email' ? (
+                  <div className="space-y-2">
+                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Work Email</label>
+                    <div className="relative">
+                      <input 
+                        type="email" 
+                        placeholder="name@company.com" 
+                        className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-indigo-500 focus:bg-white transition-all placeholder:text-slate-300"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <Icon icon="heroicons:envelope" className="absolute right-5 top-4.5 text-slate-300 text-xl" />
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="space-y-2">
+                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Verification Code</label>
+                    <div className="relative">
+                      <input 
+                        type="text" 
+                        placeholder="123456" 
+                        className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-indigo-500 focus:bg-white transition-all placeholder:text-slate-300"
+                        value={code}
+                        onChange={(e) => setCode(e.target.value)}
+                      />
+                      <Icon icon="heroicons:key" className="absolute right-5 top-4.5 text-slate-300 text-xl" />
+                    </div>
+                  </div>
+                )}
+
+                {error && <p className="text-red-500 text-sm font-medium ml-1">{error}</p>}
+
                 <button 
-                  onClick={handleLogin}
-                  className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-base shadow-xl shadow-slate-200 hover:bg-indigo-600 active:scale-[0.98] transition-all flex items-center justify-center space-x-2 group"
+                  onClick={step === 'email' ? handleSendCode : handleVerify}
+                  disabled={loading}
+                  className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-base shadow-xl shadow-slate-200 hover:bg-indigo-600 active:scale-[0.98] transition-all flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Get Login Code</span>
-                  <Icon icon="heroicons:arrow-right-20-solid" className="group-hover:translate-x-1 transition-transform" />
+                  {loading ? (
+                    <span>Processing...</span>
+                  ) : (
+                    <>
+                      <span>{step === 'email' ? 'Get Login Code' : 'Verify & Login'}</span>
+                      <Icon icon="heroicons:arrow-right-20-solid" className="group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </button>
               </div>
 
