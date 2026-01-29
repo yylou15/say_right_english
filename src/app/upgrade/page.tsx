@@ -2,7 +2,8 @@
 
 import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, Suspense } from 'react';
+import { useState, Suspense, useEffect } from 'react';
+import Script from 'next/script';
 import { upgradeToPro } from '../../lib/auth';
 
 function UpgradeContent() {
@@ -10,21 +11,91 @@ function UpgradeContent() {
   const searchParams = useSearchParams();
   const from = searchParams.get('from');
   const [selectedPlan, setSelectedPlan] = useState('annual');
+  const [paddle, setPaddle] = useState<any>(null);
+
+  useEffect(() => {
+    // Check if Paddle is already loaded globally (e.g. from previous navigation)
+    // @ts-ignore
+    if (typeof window !== 'undefined' && typeof window.Paddle !== 'undefined' && !paddle) {
+      // @ts-ignore
+      initPaddle(window.Paddle);
+    }
+  }, [paddle]);
+
+  const initPaddle = (paddleInstance: any) => {
+    try {
+       const token = process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN;
+       if (!token) {
+         console.error("Paddle Client Token is missing in environment variables");
+         return;
+       }
+       
+       // Configure environment if not already configured (check if we can/should)
+       // Note: set('sandbox') is safe to call multiple times usually
+       paddleInstance.Environment.set('sandbox');
+       
+       paddleInstance.Initialize({ 
+         token: token,
+         eventCallback: function(data: any) {
+            console.log('Paddle event:', data);
+         }
+       });
+       
+       setPaddle(paddleInstance);
+       console.log("Paddle initialized successfully via useEffect/onLoad");
+     } catch (e) {
+       console.error("Paddle initialization failed:", e);
+     }
+  };
 
   const handleUpgrade = () => {
-    upgradeToPro();
-    // Simulate processing
-    setTimeout(() => {
-      if (from) {
-        router.push(from);
-      } else {
-        router.push('/scenarios');
-      }
-    }, 500);
+    // @ts-ignore
+    const paddleInstance = paddle || window.Paddle;
+
+    if (!paddleInstance) {
+      console.error("Paddle not initialized");
+      return;
+    }
+
+    const priceId = process.env.NEXT_PUBLIC_PADDLE_PRICE_ID_ONE_TIME;
+
+    if (!priceId) {
+      alert("Price ID not configured");
+      return;
+    }
+
+    const userEmail = localStorage.getItem("email");
+    const checkoutOptions: any = {
+      items: [{ priceId: priceId, quantity: 1 }],
+      settings: {
+        successUrl: window.location.origin + '/scenarios',
+      },
+    };
+
+    if (userEmail) {
+      checkoutOptions.customer = {
+        email: userEmail
+      };
+      checkoutOptions.customData = {
+        email: userEmail // Pass in customData for easier retrieval in webhooks if needed
+      };
+    }
+
+    paddleInstance.Checkout.open(checkoutOptions);
   };
 
   return (
     <div className="bg-slate-50 min-h-screen py-12 px-6 antialiased font-sans flex items-center justify-center">
+      <Script 
+        src="https://cdn.paddle.com/paddle/v2/paddle.js" 
+        onLoad={() => {
+          // @ts-ignore
+          if (typeof Paddle !== 'undefined') {
+             // @ts-ignore
+             initPaddle(Paddle);
+          }
+        }}
+      />
       <div className="max-w-5xl w-full bg-white border border-slate-200 rounded-3xl shadow-xl overflow-hidden animate-in">
         <div className="flex flex-col md:flex-row min-h-[600px]">
           {/* Left: Value Prop */}
@@ -64,56 +135,32 @@ function UpgradeContent() {
           <aside className="w-full md:w-[400px] bg-slate-50/50 border-l border-slate-100 p-8 md:p-12 flex flex-col justify-between">
             <div>
               <div className="text-center mb-10">
-                <span className="text-slate-400 text-sm font-medium">Choose a Subscription Plan</span>
+                <span className="text-slate-400 text-sm font-medium">Upgrade Your Career</span>
               </div>
               <section className="space-y-4">
-                {/* Annual Plan */}
+                {/* One-time Plan */}
                 <label className="relative block cursor-pointer group">
                   <input 
                     type="radio" 
                     name="plan" 
-                    value="annual" 
+                    value="lifetime" 
                     className="peer sr-only" 
-                    checked={selectedPlan === 'annual'}
-                    onChange={() => setSelectedPlan('annual')}
+                    checked={true}
+                    readOnly
                   />
                   <div className="p-6 border-2 border-slate-200 bg-white rounded-2xl transition-all peer-checked:border-indigo-600 peer-checked:ring-4 peer-checked:ring-indigo-50">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h3 className="text-xl font-bold text-slate-900">Annual Subscription</h3>
-                        <p className="text-slate-400 text-xs mt-1">Billed annually, save 40%</p>
+                        <h3 className="text-xl font-bold text-slate-900">Lifetime Access</h3>
+                        <p className="text-slate-400 text-xs mt-1">One-time payment</p>
                       </div>
                       <div className="text-right">
-                        <span className="text-3xl font-black text-slate-900">$15</span>
-                        <p className="text-slate-400 text-xs">/month</p>
+                        <span className="text-3xl font-black text-slate-900">$29</span>
+                        <p className="text-slate-400 text-xs">once</p>
                       </div>
                     </div>
                   </div>
-                  <div className="absolute -top-3 left-4 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">Most Popular</div>
-                </label>
-
-                {/* Monthly Plan */}
-                <label className="relative block cursor-pointer group">
-                  <input 
-                    type="radio" 
-                    name="plan" 
-                    value="monthly" 
-                    className="peer sr-only"
-                    checked={selectedPlan === 'monthly'}
-                    onChange={() => setSelectedPlan('monthly')}
-                  />
-                  <div className="p-6 border-2 border-slate-200 bg-white rounded-2xl transition-all peer-checked:border-indigo-600 peer-checked:ring-4 peer-checked:ring-indigo-50">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-900">Monthly Subscription</h3>
-                        <p className="text-slate-400 text-xs mt-1">Cancel anytime</p>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-3xl font-black text-slate-900">$25</span>
-                        <p className="text-slate-400 text-xs">/month</p>
-                      </div>
-                    </div>
-                  </div>
+                  <div className="absolute -top-3 left-4 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">Best Value</div>
                 </label>
               </section>
             </div>
@@ -124,11 +171,11 @@ function UpgradeContent() {
                 onClick={handleUpgrade}
                 className="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold text-lg shadow-2xl hover:bg-indigo-600 active:scale-[0.98] transition-all"
               >
-                Upgrade to Pro Now
+                Get Lifetime Access
               </button>
               <div className="text-center">
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Subscription starts on 2026/01/25. Cancel anytime from your account settings.
+                  Secure payment via Paddle. 30-day money-back guarantee.
                 </p>
               </div>
             </div>
