@@ -14,8 +14,6 @@ export default function ScenarioDetailsPage() {
   const [isProUser, setIsProUser] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  useAuthProtection();
-
   useEffect(() => {
     setIsProUser(getIsPro());
     setIsLoading(false);

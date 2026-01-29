@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import { scenarios, Scenario } from '../../data/scenarios';
-import { useAuthProtection, getIsPro } from '../../lib/auth';
+import { getIsPro } from '../../lib/auth';
 
 const categories = ["Disagree", "Clarify", "Delay", "Update", "Ask for help", "Push back"];
 
@@ -14,8 +14,6 @@ function ScenariosContent() {
   const currentCategory = searchParams.get('category') || 'Disagree';
   const [searchQuery, setSearchQuery] = useState('');
   const [isProUser, setIsProUser] = useState(false);
-
-  useAuthProtection();
 
   useEffect(() => {
     setIsProUser(getIsPro());
