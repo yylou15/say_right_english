@@ -21,6 +21,59 @@ export default function LoginPage() {
     return () => clearTimeout(timer);
   }, [cooldown]);
 
+  const handleCodeChange = (index: number, value: string) => {
+    if (!value) {
+      // Deletion
+      const newCodeArr = code.split('');
+      newCodeArr[index] = '';
+      setCode(newCodeArr.join(''));
+      return;
+    }
+
+    // Only allow numbers
+    const lastChar = value.slice(-1);
+    if (!/^\d$/.test(lastChar)) return;
+
+    const newCodeArr = code.split('');
+    // Pad with empty strings if needed
+    for (let i = 0; i < 6; i++) {
+      if (newCodeArr[i] === undefined) newCodeArr[i] = '';
+    }
+    
+    newCodeArr[index] = lastChar;
+    const newCode = newCodeArr.join('').slice(0, 6);
+    setCode(newCode);
+
+    // Auto-focus next input
+    if (index < 5) {
+      inputRefs.current[index + 1]?.focus();
+    }
+    
+    // Auto-submit if full code entered
+    if (newCode.length === 6 && index === 5) {
+      // Optional: trigger verify automatically or just let user click
+      // Let's keep it manual or triggered by effect, but usually manual click is safer or just let them wait
+    }
+  };
+
+  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Backspace') {
+      if (!code[index] && index > 0) {
+        inputRefs.current[index - 1]?.focus();
+      }
+    }
+  };
+
+  const handlePaste = (e: React.ClipboardEvent) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
+    if (pastedData) {
+      setCode(pastedData);
+      const focusIndex = Math.min(pastedData.length, 5);
+      inputRefs.current[focusIndex]?.focus();
+    }
+  };
+
   const handleSendCode = async () => {
     if (!email || cooldown > 0) return;
     setLoading(true);

@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, Suspense, useEffect } from 'react';
 import Script from 'next/script';
-import { upgradeToPro } from '../../lib/auth';
+import { upgradeToPro, getIsPro } from '../../lib/auth';
 
 function UpgradeContent() {
   const router = useRouter();
@@ -12,6 +12,11 @@ function UpgradeContent() {
   const from = searchParams.get('from');
   const [selectedPlan, setSelectedPlan] = useState('annual');
   const [paddle, setPaddle] = useState<any>(null);
+  const [isPro, setIsPro] = useState(false);
+
+  useEffect(() => {
+    setIsPro(getIsPro());
+  }, []);
 
   useEffect(() => {
     // Check if Paddle is already loaded globally (e.g. from previous navigation)
@@ -49,6 +54,8 @@ function UpgradeContent() {
   };
 
   const handleUpgrade = () => {
+    if (isPro) return;
+
     // @ts-ignore
     const paddleInstance = paddle || window.Paddle;
 
