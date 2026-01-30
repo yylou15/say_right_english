@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { fetchTemplateDetail, logout, TemplateDetail, useAuthProtection } from '../../../lib/auth';
+import { Skeleton } from '../../../components/Skeleton';
 
 export default function ScenarioDetailsPage() {
   useAuthProtection('/login');
@@ -44,7 +45,85 @@ export default function ScenarioDetailsPage() {
   }, [id, router]);
 
   if (isLoading) {
-      return <div className="p-10 text-center">Loading...</div>;
+    return (
+      <div className="bg-slate-50 text-slate-900 font-sans min-h-screen">
+        {/* Navbar Skeleton */}
+        <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+             <Skeleton className="h-6 w-6 rounded-md" />
+             <Skeleton className="h-6 w-32" />
+          </div>
+          <div className="flex items-center space-x-4">
+             <Skeleton className="h-4 w-20" />
+             <Skeleton className="h-6 w-6 rounded-md" />
+          </div>
+        </nav>
+
+        <main className="pt-24 pb-12 px-6 max-w-6xl mx-auto">
+          {/* Header Skeleton */}
+          <div className="mb-12 border-b border-slate-200 pb-8">
+            <div className="flex items-center space-x-2 mb-3">
+               <Skeleton className="h-6 w-6 rounded-md" />
+               <Skeleton className="h-4 w-24" />
+            </div>
+            <Skeleton className="h-10 w-3/4 mb-4" />
+            <Skeleton className="h-6 w-1/2" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Tones Cards Skeleton */}
+            <div className="lg:col-span-2 space-y-6">
+              <h2 className="text-lg font-bold text-slate-700 flex items-center mb-4">
+                 <Skeleton className="h-5 w-5 mr-2 rounded-full" />
+                 <Skeleton className="h-6 w-48" />
+              </h2>
+              <div className="grid grid-cols-1 gap-6">
+                {[1, 2, 3].map((i) => (
+                    <div key={i} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between h-64">
+                      <div className="flex justify-between items-start mb-4">
+                         <Skeleton className="h-6 w-16 rounded-full" />
+                         <Skeleton className="h-4 w-20" />
+                      </div>
+                      <div className="space-y-2">
+                         <Skeleton className="h-4 w-full" />
+                         <Skeleton className="h-4 w-full" />
+                         <Skeleton className="h-4 w-3/4" />
+                      </div>
+                      <Skeleton className="h-10 w-full rounded-xl mt-6" />
+                    </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Risks Sidebar Skeleton */}
+            <div className="space-y-6">
+              <h2 className="text-lg font-bold text-slate-700 flex items-center mb-4">
+                 <Skeleton className="h-5 w-5 mr-2 rounded-full" />
+                 <Skeleton className="h-6 w-32" />
+              </h2>
+              <div className="bg-white rounded-3xl p-8 border border-slate-200 h-96">
+                 <div className="flex items-center space-x-2 mb-6">
+                    <Skeleton className="h-6 w-6 rounded-full" />
+                    <Skeleton className="h-4 w-24" />
+                 </div>
+                 <div className="space-y-4">
+                    <Skeleton className="h-4 w-32" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-5/6" />
+                    
+                    <div className="pt-4 mt-4 border-t border-slate-100">
+                       <Skeleton className="h-4 w-32 mb-2" />
+                       <Skeleton className="h-3 w-full" />
+                       <Skeleton className="h-3 w-full" />
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
   }
   
   // Prevent flash of content for Pro scenarios

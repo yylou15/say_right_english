@@ -2,13 +2,14 @@
 
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { login, sendCode, verifyCode } from '../../lib/auth';
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const [step, setStep] = useState<'email' | 'code'>('email');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -108,6 +109,9 @@ export default function LoginPage() {
                         className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-indigo-500 focus:bg-white transition-all placeholder:text-slate-300"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') handleSendCode();
+                        }}
                       />
                       <Icon icon="heroicons:envelope" className="absolute right-5 top-4.5 text-slate-300 text-xl" />
                     </div>
@@ -115,15 +119,25 @@ export default function LoginPage() {
                 ) : (
                   <div className="space-y-2">
                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Verification Code</label>
-                    <div className="relative">
-                      <input 
-                        type="text" 
-                        placeholder="123456" 
-                        className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-indigo-500 focus:bg-white transition-all placeholder:text-slate-300"
-                        value={code}
-                        onChange={(e) => setCode(e.target.value)}
-                      />
-                      <Icon icon="heroicons:key" className="absolute right-5 top-4.5 text-slate-300 text-xl" />
+                    <div className="flex justify-between space-x-2">
+                      {[0, 1, 2, 3, 4, 5].map((index) => (
+                        <input
+                          key={index}
+                          ref={(el) => { inputRefs.current[index] = el; }}
+                          type="text"
+                          maxLength={1}
+                          className="w-12 h-14 text-center text-xl font-bold bg-slate-50 border-2 border-slate-100 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white transition-all placeholder:text-slate-300"
+                          value={code[index] || ''}
+                          onChange={(e) => handleCodeChange(index, e.target.value)}
+                          onKeyDown={(e) => {
+                            handleKeyDown(index, e);
+                            if (e.key === 'Enter' && code.length === 6) handleVerify();
+                          }}
+                          onPaste={handlePaste}
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                        />
+                      ))}
                     </div>
                   </div>
                 )}

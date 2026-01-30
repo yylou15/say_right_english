@@ -85,7 +85,13 @@ function UpgradeContent() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen py-12 px-6 antialiased font-sans flex items-center justify-center">
+    <div className="bg-slate-50 min-h-screen py-12 px-6 antialiased font-sans flex items-center justify-center relative">
+      <nav className="absolute top-6 left-6 cursor-pointer group" onClick={() => router.push(from || '/scenarios')}>
+        <div className="flex items-center space-x-2 text-slate-500 group-hover:text-indigo-600 transition-colors bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200">
+          <Icon icon="heroicons:arrow-left-20-solid" className="text-lg" />
+          <span className="font-bold text-sm">Back</span>
+        </div>
+      </nav>
       <Script 
         src="https://cdn.paddle.com/paddle/v2/paddle.js" 
         onLoad={() => {
@@ -155,7 +161,7 @@ function UpgradeContent() {
                         <p className="text-slate-400 text-xs mt-1">One-time payment</p>
                       </div>
                       <div className="text-right">
-                        <span className="text-3xl font-black text-slate-900">$29</span>
+                        <span className="text-3xl font-black text-slate-900">$10</span>
                         <p className="text-slate-400 text-xs">once</p>
                       </div>
                     </div>
@@ -169,9 +175,14 @@ function UpgradeContent() {
             <div className="mt-12 space-y-6">
               <button 
                 onClick={handleUpgrade}
-                className="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold text-lg shadow-2xl hover:bg-indigo-600 active:scale-[0.98] transition-all"
+                disabled={isPro}
+                className={`w-full py-5 rounded-2xl font-bold text-lg shadow-2xl transition-all ${
+                  isPro 
+                    ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none' 
+                    : 'bg-slate-900 text-white hover:bg-indigo-600 active:scale-[0.98]'
+                }`}
               >
-                Get Lifetime Access
+                {isPro ? 'Plan Active' : 'Get Lifetime Access'}
               </button>
               <div className="text-center">
                 <p className="text-xs text-slate-400 leading-relaxed">

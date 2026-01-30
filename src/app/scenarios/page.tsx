@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import { fetchTemplateList, fetchUserByEmail, getEmail, getIsPro, logout, setUserInfo, TemplateCategory, TemplateSummary, useAuthProtection } from '../../lib/auth';
+import { TemplateListSkeleton } from '../../components/TemplateListSkeleton';
 
 function ScenariosContent() {
   useAuthProtection('/login');
@@ -76,6 +77,15 @@ function ScenariosContent() {
       tagsText.includes(query)
     );
   });
+  const sortedTemplates = filteredTemplates
+    .map((template, index) => ({ template, index }))
+    .sort((a, b) => {
+      if (a.template.is_pro === b.template.is_pro) {
+        return a.index - b.index;
+      }
+      return a.template.is_pro ? 1 : -1;
+    })
+    .map((item) => item.template);
 
   const handleCardClick = (template: TemplateSummary) => {
     if (template.is_locked) {
@@ -177,16 +187,16 @@ function ScenariosContent() {
           </div>
         </header>
 
-        <div className="px-12 pb-20">
+        <div className="px-12 pb-20 pt-1">
           {isLoading ? (
-            <div className="text-slate-500 text-sm">Loading templates...</div>
+            <TemplateListSkeleton />
           ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
-            {filteredTemplates.map((template, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 overflow-visible">
+            {sortedTemplates.map((template) => (
               <div 
                 key={template.id}
                 onClick={() => handleCardClick(template)}
-                className={`animate-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-400 hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between ${index === 0 ? 'h-52 p-5' : 'h-44'} relative overflow-hidden ${template.is_locked ? 'opacity-60' : ''}`}
+                className={`animate-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-400 hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between h-44 relative overflow-hidden ${template.is_locked ? 'opacity-60' : ''}`}
               >
                 {template.is_locked && (
                   <div className="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">
@@ -195,28 +205,14 @@ function ScenariosContent() {
                 )}
 
                 <div className="space-y-3">
-                  {index === 0 && (
-                    <span className="text-[10px] font-bold px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-md uppercase tracking-wider">{template.tags[0] || 'General'}</span>
-                  )}
-                  {index !== 0 && (
-                     <p className="text-lg font-medium text-slate-800 leading-snug group-hover:text-indigo-700 transition-colors line-clamp-3">{template.description}</p>
-                  )}
-                  {index === 0 && (
-                     <p className="text-base font-semibold text-slate-800 leading-relaxed group-hover:text-indigo-700 transition-colors line-clamp-3">{template.description}</p>
-                  )}
+                  <span className="text-[10px] font-bold px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-md uppercase tracking-wider">{template.tags[0] || 'General'}</span>
+                  <p className="text-base font-semibold text-slate-800 leading-relaxed group-hover:text-indigo-700 transition-colors line-clamp-3">{template.description}</p>
                 </div>
 
-                {index === 0 ? (
-                  <div className="flex justify-end items-center border-t border-slate-50 pt-3">
-                    <span className="text-xs font-bold text-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity">Get Phrases</span>
-                    <Icon icon="heroicons:arrow-right-20-solid" className="text-slate-300 ml-2 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all" />
-                  </div>
-                ) : (
-                  <div className="flex justify-between items-center mt-4">
-                    <span className="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded uppercase tracking-tighter">{template.tags[0] || 'General'}</span>
-                    <Icon icon="heroicons:chevron-right-20-solid" className="text-slate-300 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                )}
+                <div className="flex justify-end items-center border-t border-slate-50 pt-3">
+                  <span className="text-xs font-bold text-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity">Get Phrases</span>
+                  <Icon icon="heroicons:arrow-right-20-solid" className="text-slate-300 ml-2 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all" />
+                </div>
               </div>
             ))}
           </div>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { getIsAuthed } from "@/lib/auth";
 
-const PUBLIC_PATHS = ["/", "/privacy", "/terms", "/login"];
+const PUBLIC_PATHS = ["/", "/privacy", "/terms", "/login", "/upgrade", "/contact"];
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -12,31 +12,33 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
+    console.log("AuthGuard checking:", pathname, "isAuthed:", getIsAuthed());
     // If it's a public path, we don't need to check auth
     if (PUBLIC_PATHS.includes(pathname)) {
+      console.log("Public path, skipping auth check");
       setIsChecking(false);
       return;
     }
 
     // Check authentication
     if (!getIsAuthed()) {
+      console.log("Not authed, redirecting to login");
       router.push("/login");
-      // Keep isChecking true to prevent rendering children before redirect
+      // Don't set isChecking to false here, wait for redirect
     } else {
+      console.log("Authed");
       setIsChecking(false);
     }
   }, [pathname, router]);
 
-  // If it's a public path, render immediately
+  // Always render children for public paths to avoid flash or blocking
   if (PUBLIC_PATHS.includes(pathname)) {
     return <>{children}</>;
   }
 
-  // If checking or redirecting, render nothing (or a loading spinner)
   if (isChecking) {
-    return null; 
+    return null; // Or a loading spinner
   }
 
-  // If authorized, render children
   return <>{children}</>;
 }

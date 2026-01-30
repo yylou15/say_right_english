@@ -10,7 +10,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  min-width: 1280px; /* Enforce min width as per requirements */
+  min-width: 1280px;
 }
 
 @layer utilities {
@@ -21,4 +21,19 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
 }
