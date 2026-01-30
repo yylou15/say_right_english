@@ -62,7 +62,7 @@ export const useProProtection = (redirectTo: string = '/upgrade') => {
   }, [router, redirectTo]);
 };
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/sayright';
 
 export const sendCode = async (email: string) => {
   const res = await fetch(`${API_URL}/auth/send-code`, {
@@ -105,6 +105,75 @@ export const fetchUserByEmail = async (email: string) => {
   if (!res.ok) {
     const error = await res.json();
     throw new Error(error.error || 'Failed to fetch user');
+  }
+  return res.json();
+};
+
+export type TemplateSummary = {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  is_pro: boolean;
+  is_locked: boolean;
+};
+
+export type TemplateCategory = {
+  id: number;
+  name: string;
+  description?: string;
+  icon?: string;
+  templates: TemplateSummary[];
+};
+
+export type TemplateListResponse = {
+  categories: TemplateCategory[];
+};
+
+export type TemplateDetail = {
+  id: number;
+  category_id: number;
+  category_name: string;
+  title: string;
+  description: string;
+  tags: string[];
+  is_pro: boolean;
+  reply_soft: string;
+  reply_neutral: string;
+  reply_firm: string;
+  when_not_to_use: string;
+  best_practices: string[];
+};
+
+export const fetchTemplateList = async (): Promise<TemplateListResponse> => {
+  const res = await fetch(`${API_URL}/templates`, {
+    method: 'GET',
+    credentials: 'include',
+  });
+  if (res.status === 401) {
+    throw new Error('UNAUTHORIZED');
+  }
+  if (!res.ok) {
+    const error = await res.json().catch(() => ({}));
+    throw new Error(error.error || 'Failed to fetch templates');
+  }
+  return res.json();
+};
+
+export const fetchTemplateDetail = async (templateId: string): Promise<TemplateDetail> => {
+  const res = await fetch(`${API_URL}/templates/${templateId}`, {
+    method: 'GET',
+    credentials: 'include',
+  });
+  if (res.status === 401) {
+    throw new Error('UNAUTHORIZED');
+  }
+  if (res.status === 403) {
+    throw new Error('PRO_REQUIRED');
+  }
+  if (!res.ok) {
+    const error = await res.json().catch(() => ({}));
+    throw new Error(error.error || 'Failed to fetch template detail');
   }
   return res.json();
 };

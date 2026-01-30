@@ -3,19 +3,19 @@
 import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
-import { scenarios, Scenario } from '../../data/scenarios';
-import { fetchUserByEmail, getEmail, getIsPro, logout, setUserInfo, useAuthProtection } from '../../lib/auth';
-
-const categories = ["Disagree", "Clarify", "Delay", "Update", "Ask for help", "Push back"];
+import { fetchTemplateList, fetchUserByEmail, getEmail, getIsPro, logout, setUserInfo, TemplateCategory, TemplateSummary, useAuthProtection } from '../../lib/auth';
 
 function ScenariosContent() {
   useAuthProtection('/login');
   const router = useRouter();
   const searchParams = useSearchParams();
-  const currentCategory = searchParams.get('category') || 'Disagree';
+  const categoryParam = searchParams.get('category');
+  const currentCategory = categoryParam || 'Disagree';
   const [searchQuery, setSearchQuery] = useState('');
   const [isProUser, setIsProUser] = useState(false);
   const [email, setEmail] = useState('');
+  const [categories, setCategories] = useState<TemplateCategory[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const storedEmail = getEmail();
@@ -37,27 +37,51 @@ function ScenariosContent() {
       }
     };
 
+    const loadTemplates = async () => {
+      try {
+        const data = await fetchTemplateList();
+        const list = data.categories || [];
+        setCategories(list);
+        if (!categoryParam && list.length > 0) {
+          router.replace(`/scenarios?category=${encodeURIComponent(list[0].name)}`);
+        }
+      } catch (err) {
+        if (err instanceof Error && err.message === 'UNAUTHORIZED') {
+          logout();
+          router.push('/login');
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
     loadUser();
-  }, []);
+    loadTemplates();
+  }, [router, categoryParam]);
 
   const handleLogout = () => {
     logout();
     router.push('/login');
   };
 
-  const filteredScenarios = scenarios.filter(scenario => {
-    const matchesCategory = scenario.category === currentCategory;
-    const matchesSearch = scenario.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          scenario.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          scenario.badge.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+  const activeCategory = categories.find((c) => c.name === currentCategory) || categories[0];
+  const templates = activeCategory?.templates || [];
+
+  const filteredTemplates = templates.filter((template) => {
+    const query = searchQuery.toLowerCase();
+    const tagsText = template.tags.join(' ').toLowerCase();
+    return (
+      template.title.toLowerCase().includes(query) ||
+      template.description.toLowerCase().includes(query) ||
+      tagsText.includes(query)
+    );
   });
 
-  const handleCardClick = (scenario: Scenario) => {
-    if (scenario.isPro && !isProUser) {
+  const handleCardClick = (template: TemplateSummary) => {
+    if (template.is_locked) {
       router.push('/upgrade');
     } else {
-      router.push(`/scenarios/${scenario.id}`);
+      router.push(`/scenarios/${template.id}`);
     }
   };
 
@@ -102,26 +126,26 @@ function ScenariosContent() {
             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 px-3">CATEGORIES</div>
             {categories.map(category => (
               <button
-                key={category}
-                onClick={() => handleCategoryClick(category)}
+                key={category.id}
+                onClick={() => handleCategoryClick(category.name)}
                 className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl font-medium transition-all group ${
-                  currentCategory === category 
+                  currentCategory === category.name 
                     ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100' 
                     : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 <Icon 
                   icon={
-                    category === 'Disagree' ? 'heroicons:x-circle' :
-                    category === 'Clarify' ? 'heroicons:chat-bubble-bottom-center-text' :
-                    category === 'Delay' ? 'heroicons:clock' :
-                    category === 'Update' ? 'heroicons:arrow-path' :
-                    category === 'Ask for help' ? 'heroicons:question-mark-circle' :
+                    category.name === 'Disagree' ? 'heroicons:x-circle' :
+                    category.name === 'Clarify' ? 'heroicons:chat-bubble-bottom-center-text' :
+                    category.name === 'Delay' ? 'heroicons:clock' :
+                    category.name === 'Update' ? 'heroicons:arrow-path' :
+                    category.name === 'Ask for help' ? 'heroicons:question-mark-circle' :
                     'heroicons:shield-exclamation'
                   } 
-                  className={`text-xl ${currentCategory === category ? 'text-white' : 'text-slate-400'}`} 
+                  className={`text-xl ${currentCategory === category.name ? 'text-white' : 'text-slate-400'}`} 
                 />
-                <span className="text-sm">{category}</span>
+                <span className="text-sm">{category.name}</span>
               </button>
             ))}
           </nav>
@@ -136,8 +160,8 @@ function ScenariosContent() {
         <header className="sticky top-0 z-10 bg-[#F8FAFC]/90 backdrop-blur-md px-12 py-10 flex justify-between items-end">
           <div>
             <div className="flex items-center space-x-3 mb-2">
-              <h1 className="text-3xl font-black text-slate-900 tracking-tight">{currentCategory}</h1>
-              <span className="px-2.5 py-0.5 bg-slate-200 text-slate-600 text-xs font-bold rounded-full">{filteredScenarios.length} Templates</span>
+              <h1 className="text-3xl font-black text-slate-900 tracking-tight">{activeCategory?.name || currentCategory}</h1>
+              <span className="px-2.5 py-0.5 bg-slate-200 text-slate-600 text-xs font-bold rounded-full">{filteredTemplates.length} Templates</span>
             </div>
             <p className="text-slate-500 text-base">Select a scenario to view professional expressions.</p>
           </div>
@@ -154,15 +178,17 @@ function ScenariosContent() {
         </header>
 
         <div className="px-12 pb-20">
+          {isLoading ? (
+            <div className="text-slate-500 text-sm">Loading templates...</div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
-            {filteredScenarios.map((scenario, index) => (
+            {filteredTemplates.map((template, index) => (
               <div 
-                key={scenario.id}
-                onClick={() => handleCardClick(scenario)}
-                className={`animate-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-400 hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between ${index === 0 ? 'h-52 p-5' : 'h-44'} relative overflow-hidden`}
+                key={template.id}
+                onClick={() => handleCardClick(template)}
+                className={`animate-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-400 hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between ${index === 0 ? 'h-52 p-5' : 'h-44'} relative overflow-hidden ${template.is_locked ? 'opacity-60' : ''}`}
               >
-                {/* Pro Badge */}
-                {scenario.isPro && !isProUser && (
+                {template.is_locked && (
                   <div className="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">
                     PRO
                   </div>
@@ -170,13 +196,13 @@ function ScenariosContent() {
 
                 <div className="space-y-3">
                   {index === 0 && (
-                    <span className="text-[10px] font-bold px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-md uppercase tracking-wider">{scenario.badge}</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-md uppercase tracking-wider">{template.tags[0] || 'General'}</span>
                   )}
                   {index !== 0 && (
-                     <p className="text-lg font-medium text-slate-800 leading-snug group-hover:text-indigo-700 transition-colors line-clamp-3">{scenario.description}</p>
+                     <p className="text-lg font-medium text-slate-800 leading-snug group-hover:text-indigo-700 transition-colors line-clamp-3">{template.description}</p>
                   )}
                   {index === 0 && (
-                     <p className="text-base font-semibold text-slate-800 leading-relaxed group-hover:text-indigo-700 transition-colors line-clamp-3">{scenario.description}</p>
+                     <p className="text-base font-semibold text-slate-800 leading-relaxed group-hover:text-indigo-700 transition-colors line-clamp-3">{template.description}</p>
                   )}
                 </div>
 
@@ -187,13 +213,14 @@ function ScenariosContent() {
                   </div>
                 ) : (
                   <div className="flex justify-between items-center mt-4">
-                    <span className="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded uppercase tracking-tighter">{scenario.badge}</span>
+                    <span className="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded uppercase tracking-tighter">{template.tags[0] || 'General'}</span>
                     <Icon icon="heroicons:chevron-right-20-solid" className="text-slate-300 group-hover:translate-x-1 transition-transform" />
                   </div>
                 )}
               </div>
             ))}
           </div>
+          )}
         </div>
       </main>
     </div>
