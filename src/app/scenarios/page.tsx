@@ -4,20 +4,46 @@ import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import { scenarios, Scenario } from '../../data/scenarios';
-import { getIsPro } from '../../lib/auth';
+import { fetchUserByEmail, getEmail, getIsPro, logout, setUserInfo, useAuthProtection } from '../../lib/auth';
 
 const categories = ["Disagree", "Clarify", "Delay", "Update", "Ask for help", "Push back"];
 
 function ScenariosContent() {
+  useAuthProtection('/login');
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category') || 'Disagree';
   const [searchQuery, setSearchQuery] = useState('');
   const [isProUser, setIsProUser] = useState(false);
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
+    const storedEmail = getEmail();
     setIsProUser(getIsPro());
+    setEmail(storedEmail);
+
+    const loadUser = async () => {
+      if (!storedEmail) return;
+      try {
+        const user = await fetchUserByEmail(storedEmail);
+        if (!user) return;
+        const latestEmail = user.email || storedEmail;
+        const latestIsPro = Boolean(user.is_pro ?? user.isPro);
+        setEmail(latestEmail);
+        setIsProUser(latestIsPro);
+        setUserInfo(latestEmail, latestIsPro);
+      } catch {
+        return;
+      }
+    };
+
+    loadUser();
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    router.push('/login');
+  };
 
   const filteredScenarios = scenarios.filter(scenario => {
     const matchesCategory = scenario.category === currentCategory;
@@ -49,6 +75,28 @@ function ScenariosContent() {
               <Icon icon="heroicons:book-open-solid" className="text-white text-xl" />
             </div>
             <span className="font-bold text-lg tracking-tight text-slate-900">SayRight</span>
+          </div>
+          <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Account</div>
+            <div className="mt-2 text-sm font-semibold text-slate-800 truncate">{email || 'unknown@domain.com'}</div>
+            <div className="mt-3 flex items-center justify-between">
+              {isProUser ? (
+                <span className="px-2 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-full">PRO</span>
+              ) : (
+                <button
+                  onClick={() => router.push('/upgrade')}
+                  className="text-xs font-semibold text-indigo-600 hover:text-indigo-700"
+                >
+                  Upgrade to Pro
+                </button>
+              )}
+              <button
+                onClick={handleLogout}
+                className="text-xs font-semibold text-slate-400 hover:text-slate-600"
+              >
+                Log out
+              </button>
+            </div>
           </div>
           <nav className="space-y-1">
             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 px-3">CATEGORIES</div>

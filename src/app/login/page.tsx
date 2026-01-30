@@ -2,7 +2,7 @@
 
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { login, sendCode, verifyCode } from '../../lib/auth';
 
 export default function LoginPage() {
@@ -12,16 +12,27 @@ export default function LoginPage() {
   const [step, setStep] = useState<'email' | 'code'>('email');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [cooldown, setCooldown] = useState(0);
+
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setTimeout(() => setCooldown(cooldown - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [cooldown]);
 
   const handleSendCode = async () => {
-    if (!email) return;
+    if (!email || cooldown > 0) return;
     setLoading(true);
     setError('');
     try {
       await sendCode(email);
       setStep('code');
+      setCooldown(60);
     } catch (err: any) {
       setError(err.message);
+      if (typeof err.retryAfter === 'number' && err.retryAfter > 0) {
+        setCooldown(err.retryAfter);
+      }
     } finally {
       setLoading(false);
     }
@@ -121,14 +132,20 @@ export default function LoginPage() {
 
                 <button 
                   onClick={step === 'email' ? handleSendCode : handleVerify}
-                  disabled={loading}
+                  disabled={loading || (step === 'email' && cooldown > 0)}
                   className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-base shadow-xl shadow-slate-200 hover:bg-indigo-600 active:scale-[0.98] transition-all flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <span>Processing...</span>
                   ) : (
                     <>
-                      <span>{step === 'email' ? 'Get Login Code' : 'Verify & Login'}</span>
+                      <span>
+                        {step === 'email'
+                          ? cooldown > 0
+                            ? `Resend in ${cooldown}s`
+                            : 'Get Login Code'
+                          : 'Verify & Login'}
+                      </span>
                       <Icon icon="heroicons:arrow-right-20-solid" className="group-hover:translate-x-1 transition-transform" />
                     </>
                   )}

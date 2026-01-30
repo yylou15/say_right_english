@@ -13,6 +13,17 @@ export const getIsPro = (): boolean => {
   return localStorage.getItem("isPro") === "true";
 };
 
+export const getEmail = (): string => {
+  if (typeof window === 'undefined') return '';
+  return localStorage.getItem("email") || '';
+};
+
+export const setUserInfo = (email: string, isPro: boolean) => {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem("email", email);
+  localStorage.setItem("isPro", isPro ? "true" : "false");
+};
+
 export const login = (email: string) => {
   if (typeof window === 'undefined') return;
   localStorage.setItem("email", email);
@@ -59,21 +70,41 @@ export const sendCode = async (email: string) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email }),
   });
+  const data = await res.json().catch(() => ({}));
   if (!res.ok) {
-      const error = await res.json();
-      throw new Error(error.error || 'Failed to send code');
+      const errorMessage = data.error || 'Failed to send code';
+      const err = new Error(errorMessage) as Error & { retryAfter?: number };
+      if (typeof data.retry_after === 'number') {
+        err.retryAfter = data.retry_after;
+      }
+      throw err;
   }
+  return data;
 };
 
 export const verifyCode = async (email: string, code: string) => {
   const res = await fetch(`${API_URL}/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
     body: JSON.stringify({ email, code }),
   });
   if (!res.ok) {
       const error = await res.json();
       throw new Error(error.error || 'Failed to verify code');
+  }
+  return res.json();
+};
+
+export const fetchUserByEmail = async (email: string) => {
+  if (!email) return null;
+  const res = await fetch(`${API_URL}/users?email=${encodeURIComponent(email)}`, {
+    method: 'GET',
+    credentials: 'include',
+  });
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.error || 'Failed to fetch user');
   }
   return res.json();
 };
