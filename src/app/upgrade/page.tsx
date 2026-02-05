@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, Suspense, useEffect } from 'react';
 import Script from 'next/script';
-import { upgradeToPro, getIsPro } from '../../lib/auth';
+import { upgradeToPro } from '../../lib/auth';
 
 function UpgradeContent() {
   const router = useRouter();
@@ -12,11 +12,6 @@ function UpgradeContent() {
   const from = searchParams.get('from');
   const [selectedPlan, setSelectedPlan] = useState('annual');
   const [paddle, setPaddle] = useState<any>(null);
-  const [isPro, setIsPro] = useState(false);
-
-  useEffect(() => {
-    setIsPro(getIsPro());
-  }, []);
 
   useEffect(() => {
     // Check if Paddle is already loaded globally (e.g. from previous navigation)
@@ -54,8 +49,6 @@ function UpgradeContent() {
   };
 
   const handleUpgrade = () => {
-    if (isPro) return;
-
     // @ts-ignore
     const paddleInstance = paddle || window.Paddle;
 
@@ -182,14 +175,10 @@ function UpgradeContent() {
             <div className="mt-12 space-y-6">
               <button 
                 onClick={handleUpgrade}
-                disabled={isPro}
-                className={`w-full py-5 rounded-2xl font-bold text-lg shadow-2xl transition-all ${
-                  isPro 
-                    ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none' 
-                    : 'bg-slate-900 text-white hover:bg-indigo-600 active:scale-[0.98]'
-                }`}
+                disabled={false}
+                className="w-full py-5 rounded-2xl font-bold text-lg shadow-2xl transition-all bg-slate-900 text-white hover:bg-indigo-600 active:scale-[0.98]"
               >
-                {isPro ? 'Plan Active' : 'Get Lifetime Access'}
+                Get Lifetime Access
               </button>
               <div className="text-center">
                 <p className="text-xs text-slate-400 leading-relaxed">
